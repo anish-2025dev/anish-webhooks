@@ -162,9 +162,16 @@ build cmake_object_order_depends_target_broker: phony || broker/CMakeFiles/broke
 build broker/CMakeFiles/broker.dir/main.cpp.o: CXX_COMPILER__broker_unscanned_ /workspaces/anish-webhooks/broker/main.cpp || cmake_object_order_depends_target_broker
   DEP_FILE = broker/CMakeFiles/broker.dir/main.cpp.o.d
   FLAGS = -std=c++20
-  INCLUDES = -I/workspaces/anish-webhooks/shared/include
+  INCLUDES = -I/workspaces/anish-webhooks/broker/include -I/workspaces/anish-webhooks/shared/include
   OBJECT_DIR = broker/CMakeFiles/broker.dir
   OBJECT_FILE_DIR = broker/CMakeFiles/broker.dir
+
+build broker/CMakeFiles/broker.dir/src/storage/persistent_log.cpp.o: CXX_COMPILER__broker_unscanned_ /workspaces/anish-webhooks/broker/src/storage/persistent_log.cpp || cmake_object_order_depends_target_broker
+  DEP_FILE = broker/CMakeFiles/broker.dir/src/storage/persistent_log.cpp.o.d
+  FLAGS = -std=c++20
+  INCLUDES = -I/workspaces/anish-webhooks/broker/include -I/workspaces/anish-webhooks/shared/include
+  OBJECT_DIR = broker/CMakeFiles/broker.dir
+  OBJECT_FILE_DIR = broker/CMakeFiles/broker.dir/src/storage
 
 
 # =============================================================================
@@ -174,7 +181,7 @@ build broker/CMakeFiles/broker.dir/main.cpp.o: CXX_COMPILER__broker_unscanned_ /
 #############################################
 # Link the executable broker/broker
 
-build broker/broker: CXX_EXECUTABLE_LINKER__broker_ broker/CMakeFiles/broker.dir/main.cpp.o
+build broker/broker: CXX_EXECUTABLE_LINKER__broker_ broker/CMakeFiles/broker.dir/main.cpp.o broker/CMakeFiles/broker.dir/src/storage/persistent_log.cpp.o
   OBJECT_DIR = broker/CMakeFiles/broker.dir
   POST_BUILD = :
   PRE_LINK = :
