@@ -1,23 +1,12 @@
-#include <iostream>
+#include "logging/logger.h"
+#include <memory>
 
-#include "config/config.h"
-#include "types/event.h"
+void start() {
+    auto logger = std::make_unique<logging::Logger>();
+    logger->info("API started");
+}
 
 int main() {
-    config::Config config;
-
-    types::Event event{
-        "event-1",
-        "orders",
-        R"({"order_id":123})"
-    };
-
-    std::cout << "API listening on "
-              << config.host << ":" << config.port << '\n';
-
-    std::cout << "Event: "
-              << event.id << " | "
-              << event.topic << '\n';
-
+    start();
     return 0;
 }
